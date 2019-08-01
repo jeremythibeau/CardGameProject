@@ -43,16 +43,25 @@ namespace CardGameProject
             }
             // below needs to be added to its own class for gameplay
             deck = deck.Shuffle();
-            GameAction.drawCard(xCor, yCor, deck.drawCard(), ip, this);
-            GameAction.drawCard(xCor + 120, yCor, deck.drawCard(), ip, this);
-            GameAction.drawCard(xCor, yCor + 185, deck.drawCard(), ip, this);
-            GameAction.drawCard(xCor + 120, yCor + 185, deck.drawCard(), ip, this);
-            GameAction.drawCard(xCor + 240, yCor, deck.drawCard(), ip, this);
-            GameAction.drawCard(xCor + 360, yCor, deck.drawCard(), ip, this);
-            GameAction.drawCard(xCor + 240, yCor + 185, deck.drawCard(), ip, this);
-            GameAction.drawCard(xCor + 360, yCor + 185, deck.drawCard(), ip, this);
-            GameAction.drawCard(xCor + 480, yCor, deck.drawCard(), ip, this);
-            GameAction.drawCard(xCor + 480, yCor + 185, deck.drawCard(), ip, this);
+            string picBoxName = "Card";
+            for (int i = 1; i <= 5; i++, xCor+=120)
+            {
+                //GameAction.drawCard(xCor, yCor, this, picBoxName + i);
+                GameAction.fillCard(deck.drawCard(), GameAction.drawCard(xCor, yCor, this, picBoxName + i), ip);
+                //GameAction.drawCard(xCor, yCor + 185, this, picBoxName+i+1);
+                GameAction.fillCard(deck.drawCard(), GameAction.drawCard(xCor, yCor+185, this, picBoxName + i), ip);
+            }
+
+            /*
+            GameAction.drawCard(xCor + 120, yCor, this);
+            GameAction.drawCard(xCor, yCor + 185, this);
+            GameAction.drawCard(xCor + 120, yCor + 185, this);
+            GameAction.drawCard(xCor + 240, yCor, this);
+            GameAction.drawCard(xCor + 360, yCor, this);
+            GameAction.drawCard(xCor + 240, yCor + 185, this);
+            GameAction.drawCard(xCor + 360, yCor + 185, this);
+            GameAction.drawCard(xCor + 480, yCor, this);
+            GameAction.drawCard(xCor + 480, yCor + 185, this);*/
         }
 
         private void btnShuffle_Click(object sender, EventArgs e)

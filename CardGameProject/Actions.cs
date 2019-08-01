@@ -13,14 +13,20 @@ namespace CardGameProject
         public Actions()
         {
         }
-        public void drawCard(int xCor, int yCor, Card c, ImageProcessor ip, Form f)
+        public PictureBox drawCard(int xCor, int yCor, Form f, string name)
         {
             PictureBox p = new PictureBox();
             p.ClientSize = new Size(120, 170);
             p.BackColor = Color.Transparent;
             f.Controls.Add(p);
             p.Location = new Point(xCor, yCor);
+            p.Name = name;
+            return p;
             //dynamically gets the filename
+            
+        }
+        public void fillCard(Card c, PictureBox p, ImageProcessor ip)
+        {
             p.Image = ip.GetImageByName(c.getCardName(c));
         }
     }
