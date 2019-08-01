@@ -41,6 +41,7 @@ namespace CardGameProject
                     }*/
                 }
             }
+            // below needs to be added to its own class for gameplay
             deck = deck.Shuffle();
             GameAction.drawCard(xCor, yCor, deck.drawCard(), ip, this);
             GameAction.drawCard(xCor + 120, yCor, deck.drawCard(), ip, this);
