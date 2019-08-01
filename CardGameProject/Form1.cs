@@ -24,26 +24,20 @@ namespace CardGameProject
         }
         
         private void Form1_Load(object sender, EventArgs e)
-        {
-            int xCor = 30;
-            int yCor = 25;
+        { 
+            //fill deck with cards
             for (int x = 0; x < 4; x++)
             {
                 for (int y = 1; y <= 13; y++)
                 {
                     deck.addCardTop(x, y);
-                    /*
-                    xCor += 140;
-                    if (xCor >= 550)
-                    {
-                        xCor = 10;
-                        yCor += 200;
-                    }*/
                 }
             }
             // below needs to be added to its own class for gameplay
             deck = deck.Shuffle();
             string picBoxName = "Card";
+            int xCor = 30;
+            int yCor = 25;
             for (int i = 1; i <= 5; i++, xCor+=120)
             {
                 //GameAction.drawCard(xCor, yCor, this, picBoxName + i);
